@@ -40,8 +40,8 @@ export class AuthHelper {
       this.jwt.sign(
         {id: user.id, email: user.email},
         {
-          secret: 'Gl4RouaHedilSoulaima',
-          expiresIn:'3h'
+          secret: process.env.JWT_KEY,
+          expiresIn:process.env.JWT_EXPIRES
         }
       )
 

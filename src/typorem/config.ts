@@ -14,11 +14,11 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'bdangularproject',
+      host:process.env.MYSQL_DB_HOST,
+      port: Number.parseInt(process.env.MYSQL_DB_PORT),
+      username: process.env.MYSQL_DB_USER,
+      password: process.env.MYSQL_DB_PASS,
+      database: process.env.MYSQL_DB_NAME,
       entities: [User , Article,TodoEntity,Image,Comment],
       autoLoadEntities: true,
       synchronize: true,
